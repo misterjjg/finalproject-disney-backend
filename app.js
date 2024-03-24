@@ -1,6 +1,6 @@
 require("dotenv").config();
 
-const { PORT = 3001 } = process.env;
+const { PORT = 3001, NODE_ENV, CONNECTION } = process.env;
 
 const express = require("express");
 
@@ -8,12 +8,11 @@ const app = express();
 
 const mongoose = require("mongoose");
 
-mongoose
-  .connect("mongodb://127.0.0.1:27017/news_explorer_db")
-  .then(() => {
-    console.log("connected to db");
-  })
-  .catch((e) => console.log("db error", e));
+if (NODE_ENV === "production") {
+  mongoose.connect(CONNECTION);
+} else {
+  mongoose.connect("mongodb://127.0.0.1:27017/news_explorer_db");
+}
 
 const cors = require("cors");
 
