@@ -16,3 +16,4 @@ Use `npm run dev` — to launch the server but with the hot reload feature
 ## Links
 
 - [Frontend Repo](https://github.com/misterjjg/finalproject-news-explorer-frontend)
+- [Server](https://newsexplorerjg.happyforever.com)
